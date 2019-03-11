@@ -2,7 +2,7 @@
 
 'use strict'
 
-var fixtures = require('../fixtures')
+var fixtures = require('../httpsnippet/fixtures')
 var HTTPSnippet = require('./')
 
 var should = require('should')

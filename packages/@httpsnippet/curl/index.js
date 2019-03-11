@@ -87,5 +87,6 @@ module.exports.info = {
   key: 'curl',
   title: 'cURL',
   link: 'http://curl.haxx.se/',
-  description: 'cURL is a command line tool and library for transferring data with URL syntax'
+  description: 'cURL is a command line tool and library for transferring data with URL syntax',
+  target: 'shell'
 }

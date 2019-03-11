@@ -5,7 +5,7 @@ var es = require('event-stream')
 var MultiPartForm = require('form-data')
 var qs = require('querystring')
 var reducer = require('./helpers/reducer')
-var targets = require('../targets')
+var targets = require('./targets')
 var url = require('url')
 var validate = require('har-validator/lib/async')
 

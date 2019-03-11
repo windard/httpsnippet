@@ -75,5 +75,6 @@ module.exports.info = {
   key: 'xhr',
   title: 'XMLHttpRequest',
   link: 'https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest',
-  description: 'W3C Standard API that provides scripted client functionality'
+  description: 'W3C Standard API that provides scripted client functionality',
+  target: 'javascript',
 }

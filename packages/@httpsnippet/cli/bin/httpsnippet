@@ -7,7 +7,7 @@ var cmd = require('commander')
 var fs = require('fs')
 var readFile = require('fs-readfile-promise')
 var writeFile = require('fs-writefile-promise')
-var HTTPSnippet = require('../httpsnippet')
+var HTTPSnippet = require('../../httpsnippet')
 var path = require('path')
 var pkg = require('./package.json')
 
