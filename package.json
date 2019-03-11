@@ -1,39 +1,38 @@
 {
   "version": "1.16.7",
-  "name": "httpsnippet",
   "description": "HTTP Request snippet generator for *most* languages",
   "author": "Kong Inc.",
   "homepage": "https://github.com/kong/httpsnippet",
   "license": "MIT",
   "engines": {
-    "node": ">=0.10"
+    "node": ">=8"
   },
-  "files": [
-    "bin",
-    "src"
-  ],
-  "repository": "Mashape/httpsnippet",
+  "repository": "kong/httpsnippet",
   "bugs": {
-    "url": "https://github.com/Mashape/httpsnippet/issues"
+    "url": "https://github.com/kong/httpsnippet/issues"
   },
   "scripts": {
     "quick": "mocha --no-timeouts --fgrep 'Request Validation' --invert",
-    "pretest": "standard && echint",
-    "test": "mocha --no-timeouts",
-    "posttest": "npm run coverage",
+    "pretest": "standard \"packages/**/*.js\"",
+    "test": "lerna run test",
+    "posttest": "exit 0 && npm run coverage",
     "coverage": "istanbul cover --dir coverage _mocha -- --fgrep 'Request Validation' --invert -R dot",
     "codeclimate": "codeclimate < coverage/lcov.info"
   },
   "standard": {
     "ignore": [
-      "**/test/fixtures/**"
+      "**/fixtures/**",
+      "**/output/**"
     ]
   },
   "echint": {
     "ignore": [
       "coverage/**",
-      "CONTRIBUTING.md",
-      "test/fixtures/**"
+			"CONTRIBUTING.md",
+			"**/node_modules/**",
+			"src/**",
+			"test/**",
+      "**/fixtures/**"
     ]
   },
   "devDependencies": {
@@ -41,8 +40,8 @@
     "echint": "^3.0.0",
     "glob": "^6.0.1",
     "istanbul": "^0.4.0",
-    "lerna": "^3.8.0",
-    "mocha": "^2.3.4",
+    "lerna": "^3.13.1",
+    "mocha": "^6.0.2",
     "require-directory": "^2.1.1",
     "should": "^7.1.1",
     "standard": "^10.0.2"
@@ -74,5 +73,6 @@
     "unirest",
     "xhr",
     "xmlhttprequest"
-  ]
+  ],
+  "name": "httpsnippet"
 }

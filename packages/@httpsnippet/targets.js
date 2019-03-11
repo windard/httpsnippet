@@ -18,7 +18,7 @@ module.exports = {
       extname: '.js',
       default: 'xhr'
     },
-
+    xhr: require('./xhr'),
     jquery: require('./jquery')
   }
 }

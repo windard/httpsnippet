@@ -3,6 +3,3 @@
 ```bash
 npm install @httpsnippet/cli
 ```
-
-
-

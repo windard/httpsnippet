@@ -10,11 +10,10 @@
 
 'use strict'
 
-var util = require('util')
-var CodeBuilder = require('../../helpers/code-builder')
+var CodeBuilder = require('../httpsnippet/helpers/code-builder')
 
 module.exports = function (source, options) {
-  var opts = util._extend({
+  var opts = Object.assign({
     indent: '  ',
     cors: true
   }, options)

@@ -3,6 +3,9 @@
   "description": "httpsnippet core lib",
   "version": "0.1.0",
   "main": "index.js",
+  "scripts": {
+    "test": "../../../node_modules/.bin/mocha --recursive *.spec.js"
+  },
   "dependencies": {
     "chalk": "^1.1.1",
     "commander": "^2.9.0",

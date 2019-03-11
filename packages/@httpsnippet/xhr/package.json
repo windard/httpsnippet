@@ -1,6 +1,6 @@
 {
-  "name": "@httpsnippet/jquery",
-  "description": "httpsnippet target for jquery",
+  "name": "@httpsnippet/xhr",
+  "description": "httpsnippet target for XMLHttpRequest",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {

@@ -15,7 +15,7 @@ var helpers = require('../httpsnippet/helpers/shell')
 var CodeBuilder = require('../httpsnippet/helpers/code-builder')
 
 module.exports = function (source, options) {
-  var opts = util._extend({
+  var opts = Object.assign({
     indent: '  ',
     short: false,
     binary: false
