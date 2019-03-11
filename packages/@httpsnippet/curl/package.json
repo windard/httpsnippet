@@ -1,0 +1,6 @@
+{
+  "name": "@httpsnippet/curl",
+  "description": "httpsnippet target for cURL",
+  "version": "0.1.0",
+  "main": "index.js"
+}

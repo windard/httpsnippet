@@ -1,0 +1,6 @@
+{
+  "name": "@httpsnippet/jquery",
+  "description": "httpsnippet target for jquery",
+  "version": "0.1.0",
+  "main": "index.js"
+}
