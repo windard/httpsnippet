@@ -1,17 +1,19 @@
-/* global it */
+/* global it describe */
 
 'use strict'
 
+var fixtures = require('../httpsnippet/fixtures')
+var HTTPSnippet = require('../httpsnippet')
 require('should')
 
-module.exports = function (HTTPSnippet, fixtures) {
+describe('httpsnippet - target - shell - httpie', function () {
   it('should ask for verbose output', function () {
     var result = new HTTPSnippet(fixtures.requests.short).convert('shell', 'httpie', {
       indent: false,
       verbose: true
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.should.eql('http --verbose GET http://mockbin.com/har')
   })
 
@@ -30,7 +32,7 @@ module.exports = function (HTTPSnippet, fixtures) {
       verify: 'x'
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.should.eql('http -h -b -v -p=x --verify=x --cert=foo --pretty=x --style=x --timeout=1 GET http://mockbin.com/har')
   })
 
@@ -48,7 +50,7 @@ module.exports = function (HTTPSnippet, fixtures) {
       verify: 'x'
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.should.eql('http --headers --body --verbose --print=x --verify=x --cert=foo --pretty=x --style=x --timeout=1 GET http://mockbin.com/har')
   })
 
@@ -57,7 +59,7 @@ module.exports = function (HTTPSnippet, fixtures) {
       indent: '@'
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.replace(/\\\n/g, '').should.eql("http --form POST 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value' @accept:application/json @content-type:application/x-www-form-urlencoded @cookie:'foo=bar; bar=baz' @foo=bar")
   })
 
@@ -67,7 +69,7 @@ module.exports = function (HTTPSnippet, fixtures) {
       queryParams: true
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.replace(/\\\n/g, '').should.eql('http GET http://mockbin.com/har foo==bar foo==baz baz==abc key==value')
   })
 
@@ -77,7 +79,7 @@ module.exports = function (HTTPSnippet, fixtures) {
       queryParams: true
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.replace(/\\\n/g, '').should.eql('http GET http://mockbin.com/har foo==bar foo==baz baz==abc key==value')
   })
 
@@ -88,7 +90,7 @@ module.exports = function (HTTPSnippet, fixtures) {
       queryParams: true
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.replace(/\\\n/g, '').should.eql('http -f POST http://mockbin.com/har content-type:application/x-www-form-urlencoded foo=bar hello=world')
   })
-}
+})

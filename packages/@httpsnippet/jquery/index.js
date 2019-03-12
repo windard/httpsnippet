@@ -76,5 +76,5 @@ module.exports.info = {
   title: 'jQuery',
   link: 'http://api.jquery.com/jquery.ajax/',
   description: 'Perform an asynchronous HTTP (Ajax) requests with jQuery',
-  target: 'javascript',
+  target: 'javascript'
 }

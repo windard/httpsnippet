@@ -11,11 +11,11 @@
 'use strict'
 
 var util = require('util')
-var helpers = require('../../helpers/shell')
-var CodeBuilder = require('../../helpers/code-builder')
+var helpers = require('../httpsnippet/helpers/shell')
+var CodeBuilder = require('../httpsnippet/helpers/code-builder')
 
 module.exports = function (source, options) {
-  var opts = util._extend({
+  var opts = Object.assign({
     indent: '  ',
     short: false,
     verbose: false
@@ -50,5 +50,6 @@ module.exports.info = {
   key: 'wget',
   title: 'Wget',
   link: 'https://www.gnu.org/software/wget/',
-  description: 'a free software package for retrieving files using HTTP, HTTPS'
+  description: 'a free software package for retrieving files using HTTP, HTTPS',
+  target: 'shell'
 }

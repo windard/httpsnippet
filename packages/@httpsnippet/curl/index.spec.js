@@ -1,3 +1,4 @@
+/* global describe */
 /* global it */
 
 'use strict'
@@ -13,7 +14,7 @@ describe('httpsnippet - target - shell - curl', function () {
       indent: false
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.should.eql("curl -X POST 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value' -H 'accept: application/json' -H 'content-type: application/x-www-form-urlencoded' -b 'foo=bar; bar=baz' -d foo=bar")
   })
 
@@ -24,7 +25,7 @@ describe('httpsnippet - target - shell - curl', function () {
       binary: true
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.should.eql("curl -X POST 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value' -H 'accept: application/json' -H 'content-type: application/x-www-form-urlencoded' -b 'foo=bar; bar=baz' --data-binary foo=bar")
   })
 
@@ -33,7 +34,7 @@ describe('httpsnippet - target - shell - curl', function () {
       indent: false
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.should.eql('curl --request GET --url http://mockbin.com/request --http1.0')
   })
 
@@ -42,7 +43,7 @@ describe('httpsnippet - target - shell - curl', function () {
       indent: '@'
     })
 
-    result.should.be.a.String
+    result.should.be.a.String()
     result.replace(/\\\n/g, '').should.eql("curl --request POST @--url 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value' @--header 'accept: application/json' @--header 'content-type: application/x-www-form-urlencoded' @--cookie 'foo=bar; bar=baz' @--data foo=bar")
   })
 })

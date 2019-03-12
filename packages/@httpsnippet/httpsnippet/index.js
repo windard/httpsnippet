@@ -203,42 +203,14 @@ HTTPSnippet.prototype.convert = function (target, client, opts) {
 }
 
 HTTPSnippet.prototype._matchTarget = function (target, client) {
-  // does it exist?
-  if (!targets.hasOwnProperty(target)) {
-    return false
-  }
-
-  // shorthand
-  if (typeof client === 'string' && typeof targets[target][client] === 'function') {
-    return targets[target][client]
-  }
-
-  // default target
-  return targets[target][targets[target].info.default]
+  return targets.match(target, client)
 }
 
 // exports
 module.exports = HTTPSnippet
 
 module.exports.availableTargets = function () {
-  return Object.keys(targets).map(function (key) {
-    var target = Object.assign({}, targets[key].info)
-    var clients = Object.keys(targets[key])
-
-      .filter(function (prop) {
-        return !~['info', 'index'].indexOf(prop)
-      })
-
-      .map(function (client) {
-        return targets[key][client].info
-      })
-
-    if (clients.length) {
-      target.clients = clients
-    }
-
-    return target
-  })
+  return targets.available()
 }
 
 module.exports.extname = function (target) {

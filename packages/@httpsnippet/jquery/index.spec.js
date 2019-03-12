@@ -1,3 +1,5 @@
+/* global describe, it */
+
 'use strict'
 
 var fixtures = require('../httpsnippet/fixtures')
