@@ -2,6 +2,30 @@
 
 const clients = require('./clients')
 
+/**
+ * @typedef {Object} ClientInfo
+ * @prop {string} key - e.g. "curl"
+ * @prop {string} title - e.g. "cURL"
+ * @prop {string} link - href linking to client website.
+ * @prop {string} description
+ * @prop {string} target - {Target}.key
+ */
+
+/**
+ * @typedef {Object} Client
+ * @prop {Function} - code building function
+ * @prop {ClientInfo} info - info about client
+ */
+
+/**
+ * @typedef {Object} Target
+ * @prop {string} key - e.g. "javascript"
+ * @prop {string} title - e.g. "Javascript"
+ * @prop {string} extname - extension name, e.g. .js, .sh, .py
+ * @prop {string} default - default {Client}.info.key
+ * @prop {Array<Client>} clients
+ */
+
 module.exports = (function () {
   const baseTargets = {
     shell: { key: 'shell', title: 'Shell', extname: '.sh', default: 'curl' },
@@ -57,6 +81,10 @@ module.exports = (function () {
     match
   }
 
+  /**
+   * Includes client files with their code building functions + infos
+   * @returns {Object.<string, { clients: Object.<string, Client>, key, title, extname,default }>}
+   */
   function all () {
     const targets = Object.keys(clients).reduce((acc, client) => {
       const info = clients[client] && clients[client].info
@@ -83,6 +111,9 @@ module.exports = (function () {
     })
   }
 
+  /**
+   * @returns {Array<Target>}
+   */
   function available () {
     return all().map(target => {
       return {
