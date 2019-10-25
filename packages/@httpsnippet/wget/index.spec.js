@@ -14,7 +14,7 @@ describe('httpsnippet - target - shell - wget', function () {
     })
 
     result.should.be.a.String()
-    result.should.eql("wget -q --method POST --header 'cookie: foo=bar; bar=baz' --header 'content-type: application/x-www-form-urlencoded' --header 'accept: application/json' --body-data foo=bar -O - 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value'")
+    result.should.eql("wget -q --method POST --header 'cookie: foo=bar; bar=baz' --header 'accept: application/json' --header 'content-type: application/x-www-form-urlencoded' --body-data foo=bar -O - 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value'")
   })
 
   it('should ask for -v output', function () {
@@ -45,6 +45,6 @@ describe('httpsnippet - target - shell - wget', function () {
     })
 
     result.should.be.a.String()
-    result.replace(/\\\n/g, '').should.eql("wget --quiet @--method POST @--header 'cookie: foo=bar; bar=baz' @--header 'content-type: application/x-www-form-urlencoded' @--header 'accept: application/json' @--body-data foo=bar @--output-document @- 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value'")
+    result.replace(/\\\n/g, '').should.eql("wget --quiet @--method POST @--header 'cookie: foo=bar; bar=baz' @--header 'accept: application/json' @--header 'content-type: application/x-www-form-urlencoded' @--body-data foo=bar @--output-document @- 'http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value'")
   })
 })

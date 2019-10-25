@@ -1,13 +1,3 @@
-/**
- * @description
- * HTTP code snippet generator for native XMLHttpRequest
- *
- * @author
- * @AhmadNassri
- *
- * for any questions or issues regarding the generated code snippet, please open an issue mentioning the author.
- */
-
 'use strict'
 
 var CodeBuilder = require('../httpsnippet/helpers/code-builder')
