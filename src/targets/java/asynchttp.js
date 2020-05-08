@@ -21,9 +21,9 @@ module.exports = function (source, options) {
 
   // var methods = [ 'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS', 'TRACE', 'CONNECT' ]
 
-  code.push('Dsl.asyncHttpClient()')
+  code.push('AsyncHttpClient client = new DefaultAsyncHttpClient();')
 
-  code.push(1, `.prepare${source.method[0].toUpperCase()}${source.method.substring(1).toLowerCase()}("${source.fullUrl}")`)
+  code.push(`client.prepare${source.method[0].toUpperCase()}${source.method.substring(1).toLowerCase()}("${source.fullUrl}")`)
 
   // Add headers, including the cookies
   var headers = Object.keys(source.allHeaders)
@@ -43,6 +43,8 @@ module.exports = function (source, options) {
   code.push(1, '.toCompletableFuture()')
   code.push(1, '.thenAccept(System.out::println)')
   code.push(1, '.join();')
+  code.blank()
+  code.push('client.close();')
 
   return code.join()
 }
