@@ -21,7 +21,9 @@ module.exports = function (source, options) {
 
   var methods = [ 'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS', 'TRACE', 'CONNECT' ]
 
-  code.push('Dsl.asyncHttpClient().prepare%s%s(%s)', source.method.slice(0,1).toUpperCase(), source.method.slice(1).toLowerCase(), source.fullUrl)
+  code.push('Dsl.asyncHttpClient()')
+
+  code.push(1, '.prepare%s%s("%s")', source.method.slice(0,1).toUpperCase(), source.method.slice(1).toLowerCase(), source.fullUrl)
 
   // Add headers, including the cookies
   var headers = Object.keys(source.allHeaders)
