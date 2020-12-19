@@ -1,5 +1,5 @@
-Dsl.asyncHttpClient()
-  .preparePost("http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value")
+AsyncHttpClient client = new DefaultAsyncHttpClient();
+client.preparePost("http://mockbin.com/har?foo=bar&foo=baz&baz=abc&key=value")
   .setHeader("cookie", "foo=bar; bar=baz")
   .setHeader("accept", "application/json")
   .setHeader("content-type", "application/x-www-form-urlencoded")
@@ -8,3 +8,5 @@ Dsl.asyncHttpClient()
   .toCompletableFuture()
   .thenAccept(System.out::println)
   .join();
+
+client.close();

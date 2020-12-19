@@ -67,6 +67,7 @@ module.exports = function (source, options) {
     .blank()
     .push('Response response = client.newCall(request).execute();')
 
+  code.push(1, "System.out.println(response.body().string());")
   return code.join()
 }
 
